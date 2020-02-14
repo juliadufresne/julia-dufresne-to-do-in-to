@@ -3,6 +3,16 @@ const app = {};
 // WORKING URL THAT PULLS ENTIRE API BY CITY (TORONTO)
 // https://app.ticketmaster.com/discovery/v2/events.json?apikey=bTDdH2M6LG5xlXjLYgM6g2xJnQJgtML1&city=toronto
 
+
+// Storing date from HTML
+app.date = $('.date').val();
+
+app.startTime = `T00:00:00Z`;
+app.endTime = `T23:59:59Z`;
+
+app.startDateTime = `${app.date}${app.startTime}`;
+app.endDateTime = `${app.date}${app.endTime}`;
+
 app.ajaxCall = function(){
     $.ajax({
         url: `https://app.ticketmaster.com/discovery/v2/events.json?`,
@@ -12,12 +22,10 @@ app.ajaxCall = function(){
         data: {
             apikey: `bTDdH2M6LG5xlXjLYgM6g2xJnQJgtML1`,
             city: `toronto`,
-            // startDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
-            // endDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
+            startDateTime: app.startDateTime,
+            endDateTime: app.endDateTime,
         }
     }).then(function(result) {
-        console.log(result)
-
         // Genre
         console.log(result._embedded.events[0].classifications[0].segment.name)
 
@@ -34,10 +42,6 @@ app.ajaxCall = function(){
         console.log(result._embedded.events[0].dates.start.localTime);
     })
 }
-
-
-app.date = $('.date');
-console.log(app.date.val())
 
 app.init = function(){
     app.ajaxCall();
