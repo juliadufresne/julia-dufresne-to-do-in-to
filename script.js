@@ -12,8 +12,8 @@ app.ajaxCall = function(){
         data: {
             apikey: `bTDdH2M6LG5xlXjLYgM6g2xJnQJgtML1`,
             city: `toronto`,
-            startDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
-            endDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
+            // startDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
+            // endDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
         }
     }).then(function(result) {
         console.log(result)
