@@ -6,11 +6,12 @@ const app = {};
 
 // Storing date from HTML
 app.date = $('.date').val();
-console.log(app.date);
 
-app.time = `T00:00:00Z`
+app.startTime = `T00:00:00Z`;
+app.endTime = `T23:59:59Z`;
 
-app.dateTime = 
+app.startDateTime = `${app.date}${app.startTime}`;
+app.endDateTime = `${app.date}${app.endTime}`;
 
 app.ajaxCall = function(){
     $.ajax({
@@ -21,8 +22,8 @@ app.ajaxCall = function(){
         data: {
             apikey: `bTDdH2M6LG5xlXjLYgM6g2xJnQJgtML1`,
             city: `toronto`,
-            // startDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
-            // endDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
+            startDateTime: app.startDateTime,
+            endDateTime: app.endDateTime,
         }
     }).then(function(result) {
         // Genre
