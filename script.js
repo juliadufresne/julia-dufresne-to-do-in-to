@@ -12,9 +12,11 @@ app.ajaxCall = function(){
         data: {
             apikey: `bTDdH2M6LG5xlXjLYgM6g2xJnQJgtML1`,
             city: `toronto`,
+            startDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
+            endDateTime: `YYYY-MM-DDTHH:MM:SSZ`,
         }
     }).then(function(result) {
-        // console.log(result)
+        console.log(result)
 
         // Genre
         console.log(result._embedded.events[0].classifications[0].segment.name)
