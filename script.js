@@ -26,20 +26,61 @@ app.ajaxCall = function(){
             endDateTime: app.endDateTime,
         }
     }).then(function(result) {
-        // Genre
-        console.log(result._embedded.events[0].classifications[0].segment.name)
 
-        // Type of genre
-        console.log(result._embedded.events[0].name)
+        console.log(result)
+    
+        // Genre
+        // console.log(result._embedded.events[0].classifications[0].segment.name)
+
+        // Name
+        // console.log(result._embedded.events[0].name)
 
         // Venue
-        console.log(result._embedded.events[0]._embedded.venues[0].name)
+        // console.log(result._embedded.events[0]._embedded.venues[0].name)
 
         // Pulls date
-        console.log(result._embedded.events[0].dates.start.localDate);
+        // console.log(result._embedded.events[0].dates.start.localDate);
 
         // Pulls time
-        console.log(result._embedded.events[0].dates.start.localTime);
+        // console.log(result._embedded.events[0].dates.start.localTime);
+
+        const objectData = result._embedded.events;
+
+        const sports = objectData.forEach(function(currentItem){
+            const genre = currentItem.classifications[0].segment.name
+            if (genre === "Sports") {
+                console.log(currentItem.name);
+                console.log(currentItem._embedded.venues[0].name);
+                console.log(currentItem.dates.start.localDate);
+                console.log(currentItem.dates.start.localTime);
+            } else {
+                console.log("No events")
+            }
+        }) 
+
+        const music = objectData.forEach(function(currentItem){
+            const genre = currentItem.classifications[0].segment.name
+            if (genre === "Music"){
+                console.log(currentItem.name);
+                console.log(currentItem._embedded.venues[0].name);
+                console.log(currentItem.dates.start.localDate);
+                console.log(currentItem.dates.start.localTime);
+            } else {
+                console.log("No events")
+            }
+        })
+
+        const arts = objectData.forEach(function(currentItem){
+            const genre = currentItem.classifications[0].segment.name
+            if (genre === "Arts & Theatre") {
+                console.log(currentItem.name);
+                console.log(currentItem._embedded.venues[0].name);
+                console.log(currentItem.dates.start.localDate);
+                console.log(currentItem.dates.start.localTime);
+            } else {
+                console.log("No events")
+            }
+        })
     })
 }
 
