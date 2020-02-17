@@ -44,41 +44,68 @@ app.ajaxCall = function(){
         // Pulls time
         // console.log(result._embedded.events[0].dates.start.localTime);
 
-        const objectData = result._embedded.events;
+        let arrayData = result._embedded.events.slice(0, 10);
 
-        const sports = objectData.forEach(function(currentItem){
+
+        const sports = arrayData.forEach(function(currentItem){
             const genre = currentItem.classifications[0].segment.name
+            const nameOfEvent = currentItem.name;
+            const venue = currentItem._embedded.venues[0].name;
+            const date = currentItem.dates.start.localDate;
+            const time = currentItem.dates.start.localTime;
             if (genre === "Sports") {
-                console.log(currentItem.name);
-                console.log(currentItem._embedded.venues[0].name);
-                console.log(currentItem.dates.start.localDate);
-                console.log(currentItem.dates.start.localTime);
-            } else {
-                console.log("No events")
+                // PRINT FIRST 10 EVENTS
+                    const htmlToAppend = `
+                    <div class="sports">
+                        <li>Genre: ${genre}</li>
+                        <li>Name of event: ${nameOfEvent}</li>
+                        <li>Name of venue: ${venue}</li>
+                        <li>Date: ${date}</li>
+                        <li>Time: ${time}</li>
+                    </div>
+                    `;
+                    $('.sports').append(htmlToAppend);
             }
         }) 
 
-        const music = objectData.forEach(function(currentItem){
-            const genre = currentItem.classifications[0].segment.name
+        const music = arrayData.forEach(function(currentItem){
+            const genre = currentItem.classifications[0].segment.name;
+            const nameOfEvent = currentItem.name;
+            const venue = currentItem._embedded.venues[0].name;
+            const date = currentItem.dates.start.localDate;
+            const time = currentItem.dates.start.localTime;
             if (genre === "Music"){
-                console.log(currentItem.name);
-                console.log(currentItem._embedded.venues[0].name);
-                console.log(currentItem.dates.start.localDate);
-                console.log(currentItem.dates.start.localTime);
-            } else {
-                console.log("No events")
+                const htmlToAppend = `
+                <div class="music">
+                    <li>Genre: ${genre}</li>
+                    <li>Name of event: ${nameOfEvent}</li>
+                    <li>Name of venue: ${venue}</li>
+                    <li>Date: ${date}</li>
+                    <li>Time: ${time}</li>
+                </div>
+                `;
+                $('.music').append(htmlToAppend);
+
             }
         })
 
-        const arts = objectData.forEach(function(currentItem){
-            const genre = currentItem.classifications[0].segment.name
+        const arts = arrayData.forEach(function(currentItem){
+            const genre = currentItem.classifications[0].segment.name;
+            const nameOfEvent = currentItem.name;
+            const venue = currentItem._embedded.venues[0].name;
+            const date = currentItem.dates.start.localDate;
+            const time = currentItem.dates.start.localTime;
             if (genre === "Arts & Theatre") {
-                console.log(currentItem.name);
-                console.log(currentItem._embedded.venues[0].name);
-                console.log(currentItem.dates.start.localDate);
-                console.log(currentItem.dates.start.localTime);
-            } else {
-                console.log("No events")
+                const htmlToAppend = `
+                <div class="arts">
+                    <li>Genre: ${genre}</li>
+                    <li>Name of event: ${nameOfEvent}</li>
+                    <li>Name of venue: ${venue}</li>
+                    <li>Date: ${date}</li>
+                    <li>Time: ${time}</li>
+                </div>
+                `;
+                $('.arts').append(htmlToAppend);
             }
         })
     })
