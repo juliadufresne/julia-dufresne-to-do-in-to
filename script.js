@@ -49,6 +49,13 @@ app.ajaxCall = function(){
                 const venue = item._embedded.venues[0].name;
                 const date = item.dates.start.localDate;
                 const time = item.dates.start.localTime;
+                const image = item.images;
+
+                    image.forEach(function(i){
+                        if (i.width === 205) {
+                            return imageURL = i.url;
+                        }
+                    })
                 const htmlToAppend = `
                 <div>
                     <li>Genre: ${genre}</li>
@@ -56,6 +63,7 @@ app.ajaxCall = function(){
                     <li>Name of venue: ${venue}</li>
                     <li>Date: ${date}</li>
                     <li>Time: ${time}</li>
+                    <li>Image: <img src="${imageURL}" alt=""></li>
                 </div>
                 `;
 
@@ -101,6 +109,14 @@ app.ajaxCall = function(){
                 const venue = item._embedded.venues[0].name;
                 const date = item.dates.start.localDate;
                 const time = item.dates.start.localTime;
+                const image = item.images;
+
+                    image.forEach(function(i){
+                        if (i.width === 205) {
+                            return imageURL = i.url;
+                        }
+                    })
+
                 const htmlToAppend = `
                 <div>
                     <li>Genre: ${genre}</li>
@@ -108,6 +124,7 @@ app.ajaxCall = function(){
                     <li>Name of venue: ${venue}</li>
                     <li>Date: ${date}</li>
                     <li>Time: ${time}</li>
+                    <li>Image: <img src="${imageURL}" alt=""></li>
                 </div>
                 `;
 
@@ -154,6 +171,14 @@ app.ajaxCall = function(){
                 const venue = item._embedded.venues[0].name;
                 const date = item.dates.start.localDate;
                 const time = item.dates.start.localTime;
+                const image = item.images;
+
+                    image.forEach(function(i){
+                        if (i.width === 205) {
+                            return imageURL = i.url;
+                        }
+                    })
+
                 const htmlToAppend = `
                 <div>
                     <li>Genre: ${genre}</li>
@@ -161,6 +186,7 @@ app.ajaxCall = function(){
                     <li>Name of venue: ${venue}</li>
                     <li>Date: ${date}</li>
                     <li>Time: ${time}</li>
+                    <li>Image: <img src="${imageURL}" alt=""></li>
                 </div>
                 `;
 
