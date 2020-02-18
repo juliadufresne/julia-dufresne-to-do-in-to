@@ -8,6 +8,12 @@ app.submitButton = $(".submit").click(function(){
     location.reload();
 });
 
+app.appendDate = `
+    <h2>${app.date}</h2>
+`;
+
+$('.date').append(app.appendDate);
+
 // PULLS LOCAL DATE TIME
 app.startTime = `T00:00:00`;
 app.startDateTime = `${app.date}${app.startTime}`;

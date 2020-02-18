@@ -396,7 +396,7 @@ input[type="date"], focus {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: 1 / 1 / 2 / 4;
-  background-color: pink;
+  background-color: #f2f2f2;
 }
 
 .sports {
@@ -405,7 +405,7 @@ input[type="date"], focus {
   -ms-grid-column: 4;
   -ms-grid-column-span: 3;
   grid-area: 1 / 4 / 4 / 7;
-  background-color: pink;
+  background-color: #f2f2f2;
 }
 
 .music {
@@ -414,7 +414,7 @@ input[type="date"], focus {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: 4 / 1 / 7 / 4;
-  background-color: pink;
+  background-color: #f2f2f2;
 }
 
 .arts {
@@ -423,7 +423,7 @@ input[type="date"], focus {
   -ms-grid-column: 4;
   -ms-grid-column-span: 3;
   grid-area: 4 / 4 / 7 / 7;
-  background-color: pink;
+  background-color: #f2f2f2;
 }
 
 ul {
