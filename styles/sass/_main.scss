@@ -1,0 +1,34 @@
+main {
+    
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px; 
+    height: 100vh;
+    width: auto;
+}
+
+.date { 
+    grid-area: 1 / 1 / 2 / 4; 
+    background-color: pink;
+}
+.sports { 
+    grid-area: 1 / 4 / 4 / 7; 
+    background-color: pink;
+}
+.music { 
+    grid-area: 4 / 1 / 7 / 4; 
+    background-color: pink;
+}
+.arts { 
+    grid-area: 4 / 4 / 7 / 7; 
+    background-color: pink;
+} 
+
+ul {
+    overflow: auto;
+}

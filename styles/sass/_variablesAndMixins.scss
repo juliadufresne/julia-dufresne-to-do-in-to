@@ -1,0 +1,8 @@
+    // font-family: 'Raleway', sans-serif;
+    $bodyFont: 'Raleway', sans-serif;
+    $headerFont: 'Fredoka One', cursive;
+
+    @mixin fontSize($size){
+        font-size: ($size/10) * 1rem;
+    }
+
