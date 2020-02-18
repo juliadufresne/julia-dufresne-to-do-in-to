@@ -6,19 +6,22 @@ const app = {};
 
 // Storing date from HTML
 app.date = $('.date').val();
+
+// PULLS LOCAL DATE TIME
 app.startTime = `T00:00:00`;
 app.startDateTime = `${app.date}${app.startTime}`;
 app.endTime = `T23:59:59`;
 app.endDateTime = `${app.date}${app.endTime}`;
-
 app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
 console.log(app.localStartDateTime);
 
 
-// app.startTime = `T00:00:00Z`;
-// app.endTime = `T23:59:59Z`;
-// app.startDateTime = `${app.date}${app.startTime}`;
-// app.endDateTime = `${app.date}${app.endTime}`;
+// PULL START DATE TIME
+app.startTime = `T00:00:00Z`;
+app.endTime = `T23:59:59Z`;
+app.startDateTime = `${app.date}${app.startTime}`;
+app.endDateTime = `${app.date}${app.endTime}`;
+console.log(app.startDateTime, app.endDateTime)
 
 
 app.ajaxCall = function(){
@@ -120,10 +123,10 @@ app.ajaxCall = function(){
         })
 
         // Function to sort out duplicate events
-        function connorAttempt() {
+        function sortDuplicates() {
 
             // New array that we will not add duplicate events to (no two events with the same name)
-            let noDupes = [];
+            let noDuplicates = [];
 
             arrayData.forEach(function(item){
 
@@ -132,20 +135,20 @@ app.ajaxCall = function(){
                 // We only care about "item" if its an arts event
                 if (genre === "Arts & Theatre") {
                     
-                    // If there's nothing in noDupes, that means that we can safely add our first event and it won't be a duplicate
-                    if(noDupes.length == 0){
+                    // If there's nothing in noDuplicates, that means that we can safely add our first event and it won't be a duplicate
+                    if(noDuplicates.length == 0){
                         
-                        noDupes.push(item);
+                        noDuplicates.push(item);
                     
-                    // Otherwise, we have to take a look at what we've added to noDupes already
+                    // Otherwise, we have to take a look at what we've added to noDuplicates already
                     } else {
 
                         // Boolean variable that tells us if the "copied" item matches the "item" we're considering adding 
                         let match = false;
 
-                        noDupes.forEach(function(copied) {
+                        noDuplicates.forEach(function(copied) {
 
-                            // If the name and venue are the same, we treat this as the same event, and we don't add it to noDupes
+                            // If the name and venue are the same, we treat this as the same event, and we don't add it to noDuplicates
                             if(item.name === copied.name && 
                                 item._embedded.venues[0].name === copied._embedded.venues[0].name) {
 
@@ -155,9 +158,9 @@ app.ajaxCall = function(){
 
                         });
 
-                        // If no event in noDupes matches item, that means we can add it.
+                        // If no event in noDuplicates matches item, that means we can add it.
                         if(!match) {
-                            noDupes.push(item);
+                            noDuplicates.push(item);
                         }
 
                     }
@@ -165,11 +168,11 @@ app.ajaxCall = function(){
                 }
             })
 
-            console.log(noDupes);
+            console.log(noDuplicates);
 
         }
 
-        connorAttempt();
+        sortDuplicates();
     })
 }
 
