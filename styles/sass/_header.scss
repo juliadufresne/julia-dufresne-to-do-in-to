@@ -29,7 +29,7 @@ h1 {
     0 0 10rem whitesmoke,
 }
 
-div {
+header div {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -39,7 +39,6 @@ div {
     margin: 20px;
     text-align: center;
 }
-
 
 // http://jsfiddle.net/plan/V2Q58/
 
@@ -61,22 +60,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* A few custom styles for date inputs */
 input[type="date"] {
     margin-top: 100px;
-    background-color: white;
+    background-color: whitesmoke;
     width: 265px;
     appearance: none;
     -webkit-appearance: none;
-    color: #95a5a6;
+    color: teal;
     font-family: $bodyFont;
     font-size: 26px;
     border: none;
     padding: 10px;
-    padding-left: 30px;
+    padding-left: 25px;
     text-align: center;
     border-radius: 5px;
 }
 
 input[type="date"], focus {
-    color: #95a5a6;
+    color: teal;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -84,8 +83,8 @@ input[type="date"], focus {
 
 .submit {
     width: 140px;
-    color: #95a5a6;
-    background-color: white;
+    color: whitesmoke;
+    background-color: teal;
     text-align: center;
     margin: 0 auto;
     padding: 5px;

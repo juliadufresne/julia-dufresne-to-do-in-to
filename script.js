@@ -39,13 +39,11 @@ app.sortSportsDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div>
-            <li>Genre: ${genre}</li>
-            <li>Name of event: ${nameOfEvent}</li>
-            <li>Name of venue: ${venue}</li>
-            <li>Date: ${date}</li>
-            <li>Time: ${time}</li>
-            <li>Image: <img src="${imageURL}" alt=""></li>
+        <div class="eventDiv">
+            <li class="eventImage"><img src="${imageURL}" alt=""></li>
+            <li class="eventName">${nameOfEvent}</li>
+            <li class="eventVenue">${venue}</li>
+            <li class="eventDate">${date} @ ${time}</li>
         </div>
         `;
         // We only care about "item" if its an arts event
@@ -96,13 +94,11 @@ app.sortMusicDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div>
-            <li>Genre: ${genre}</li>
-            <li>Name of event: ${nameOfEvent}</li>
-            <li>Name of venue: ${venue}</li>
-            <li>Date: ${date}</li>
-            <li>Time: ${time}</li>
-            <li>Image: <img src="${imageURL}" alt=""></li>
+        <div class="eventDiv">
+            <li class="eventImage"><img src="${imageURL}" alt=""></li>
+            <li class="eventName">${nameOfEvent}</li>
+            <li class="eventVenue">${venue}</li>
+            <li class="eventDate">${date} @ ${time}</li>
         </div>
         `;
         // We only care about "item" if its an arts event
@@ -153,13 +149,11 @@ app.sortArtDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div>
-            <li>Genre: ${genre}</li>
-            <li>Name of event: ${nameOfEvent}</li>
-            <li>Name of venue: ${venue}</li>
-            <li>Date: ${date}</li>
-            <li>Time: ${time}</li>
-            <li>Image: <img src="${imageURL}" alt=""></li>
+        <div class="eventDiv">
+            <li class="eventImage"><img src="${imageURL}" alt=""></li>
+            <li class="eventName">${nameOfEvent}</li>
+            <li class="eventVenue">${venue}</li>
+            <li class="eventDate">${date} @ ${time}</li>
         </div>
         `;
         // We only care about "item" if its an arts event
