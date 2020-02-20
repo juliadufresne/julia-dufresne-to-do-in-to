@@ -2,7 +2,7 @@ header {
     height: 100vh;
     background-color: black;
     margin: 0 auto;
-    text-align: center;
+    // text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,14 +10,21 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
 }
 
+header,
+.headerDate,
+.submit {
+    text-align: center;
+}
+
+
 h1 {
-    // font-family: $bodyFont, cursive;
-    font-family: 'Comfortaa', cursive;
-    // font-family: 'Baloo Bhaina', cursive;
-    // font-family: 'Bungee Shade', cursive;
-    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: 'Poiret One', cursive;
+    color: #fff;
     @include fontSize(120);
     text-shadow:
     -0.2rem -0.2rem 1rem #fff,
@@ -35,9 +42,9 @@ header div {
     margin: 0 auto;
 }
 
-.date {
+.headerDate {
     margin: 20px;
-    text-align: center;
+    // text-align: center;
 }
 
 // http://jsfiddle.net/plan/V2Q58/
@@ -59,14 +66,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* A few custom styles for date inputs */
 input[type="date"] {
-    margin-top: 100px;
+    margin-top: 110px;
     background-color: whitesmoke;
     width: 265px;
     appearance: none;
     -webkit-appearance: none;
     color: teal;
     font-family: $bodyFont;
-    font-size: 26px;
+    @include fontSize(26);
     border: none;
     padding: 10px;
     padding-left: 25px;
@@ -81,16 +88,46 @@ input[type="date"], focus {
     -moz-box-shadow: none;
 }
 
+input[type="submit"]:focus {
+    border: whitesmoke;
+    transform: scale(1.1);
+}
+
 .submit {
     width: 140px;
     color: whitesmoke;
     background-color: teal;
-    text-align: center;
+    // text-align: center;
     margin: 0 auto;
     padding: 5px;
     padding-top:8px;
     border: none;
     border-radius: 5px;
     font-family: $bodyFont;
-    font-size: 26px;
+    @include fontSize(26);
+}
+
+i {
+    color: whitesmoke;
+    @include fontSize(40);
+    position: absolute;
+    bottom: 35px;
+    left: calc((100% / 2) - 20px);
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+ 
+
+@media (max-width: 810px){
+    h1 {
+        @include fontSize(95);
+    }
+}
+
+@media (max-width: 680px){
+    h1 {
+        @include fontSize(70);
+    }
 }

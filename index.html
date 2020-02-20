@@ -9,18 +9,21 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/813177f008.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
     <h1>To do in TO</h1>
     <div>
-        <input type="date" class="date" required="required" style="width:265px">
-        <input type="submit" class="submit" value="Let's Go"></input>
+        <input type="date" class="headerDate" required="required" style="width:265px">
+        <input type="submit" class="submit" value="Let's Go" tabindex="0"></input>
+        <i class="fas fa-chevron-down" tabindex="0" aria-label="Click to scroll down to result"></i>
     </div>
 </header>
 
-<main id="date">
-    <div class="parent">
+<main>
+    <div class="parent wrapper">
 
         <div class="date">
             <!-- JS GOES IN HERE -->
@@ -33,14 +36,17 @@
         </div>
 
         <ul class="sports">
+            <!-- <h3 class="genre">Sports</h3> -->
             <!-- Js GOES IN HERE -->
         </ul>
     
         <ul class="music">
+            <!-- <h3 class="genre">Music</h3> -->
             <!-- Js GOES IN HERE -->
         </ul>
     
         <ul class="arts">
+            <!-- <h3 class="genre">Arts & Theatre</h3> -->
             <!-- Js GOES IN HERE -->
         </ul>
     </div>

@@ -1,36 +1,57 @@
-main {
-    
-}
-
 .parent {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    // grid-column-gap: 20px;
-    // grid-row-gap: 20px; 
     height: 100vh;
     width: auto;
     font-family: $bodyFont;
+    grid-gap: 20px;
+    padding: 2vw 0px;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.sports,
+.music,
+.arts,
+.date,
+.gallery {
+    display: flex;
+}
+
+
+.date,
+.gallery {
+    justify-content: center;
+    align-items: center;
 }
 
 .date { 
     grid-area: 1 / 1 / 2 / 4; 
     background-color: #f2f2f2;
-    margin: 20px 10px 20px 20px;
-    display: flex;
+    // margin: 20px 10px 20px 20px;
+    // display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     color: teal;
+
+    h2 {
+        @include fontSize(35);   
+    }
 }
 
 .gallery {
     grid-area: 2 / 1 / 4 / 4; 
-    display: flex;
+    // display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 10px 20px 20px;
+    // justify-content: center;
+    // align-items: center;
+    // margin: 20px 10px 20px 20px;
 }
 
 .imageDiv1,
@@ -46,28 +67,28 @@ main {
 }
 
 .imageDiv1 {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery1.jpg);
+    background-image:  url(../assets/gallery1.jpg);
 }
 
 .imageDiv2 {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery2.jpg);
+    background-image: url(../assets/gallery2.jpg);
     margin: 20px;
 }
 
 .imageDiv3 {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery3.jpg);
+    background-image:  url(../assets/gallery3.jpg);
 }
 
 .eventDiv {
     background-color: white;
-    margin: 20px;
+    margin: 20px auto;
     width: calc(50% - 40px);
     padding: 20px;
+    &:focus {
+        outline: 2px solid teal;
+    }
 }
 
-.eventImage img{
-    width: 100%;
-}
 
 .eventName {
     font-family: 'Comfortaa', cursive;
@@ -80,31 +101,107 @@ main {
     color: grey;
 }
 
+.sports,
+.music,
+.arts {
+    flex-wrap: wrap;
+    background-color: #f2f2f2;
+}
 
 .sports { 
     grid-area: 1 / 4 / 4 / 7; 
-    background-color: #f2f2f2;
-    margin: 20px 20px 20px 10px;
-    display: flex;
-    flex-wrap: wrap;
+    // background-color: #f2f2f2;
+    // margin: 20px 20px 20px 10px;
+    // display: flex;
+    // flex-wrap: wrap;
 }
 
 .music { 
     grid-area: 4 / 1 / 7 / 4; 
-    background-color: #f2f2f2;
-    margin: 20px 10px 20px 20px;
-    display: flex;
-    flex-wrap: wrap;
+    // background-color: #f2f2f2;
+    // margin: 20px 10px 20px 20px;
+    // display: flex;
+    // flex-wrap: wrap;
 }
 
 .arts { 
     grid-area: 4 / 4 / 7 / 7; 
-    background-color: #f2f2f2;
-    margin: 20px 20px 20px 10px;
-    display: flex;
-    flex-wrap: wrap;
+    // background-color: #f2f2f2;
+    // margin: 20px 20px 20px 10px;
+    // display: flex;
+    // flex-wrap: wrap;
 } 
 
 ul {
     overflow: auto;
 }
+
+
+// Potential Styling for "No Events" Box
+// h4 {
+//     @include fontSize(35);
+//     color: #383838;
+//     text-align: center;
+// }
+
+// Media Queries
+// We can tweak sizing before 800px I just wnted to begin fixing where things begin to break badly and get squished
+
+@media (max-width: 1000px){
+    .gallery {
+        .imageDiv1,
+        .imageDiv2 {
+            width: 50%;
+        }
+
+        .imageDiv2 {
+            margin: 0 0 0 20px;
+        }
+
+        .imageDiv3 {
+            display: none;
+        }
+    }
+}
+
+//Between these 2 MQ (or before), it might be best to stack the ul horizontally as the eventDiv is flush with the bottom
+
+@media (max-width: 810px){
+    ul .eventDiv {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .date h2 {
+        @include fontSize(32);
+    }
+}
+
+@media(max-width: 680px){
+    .gallery {
+        .imageDiv1 {
+            width: 100%;
+        }
+
+        .imageDiv2 {
+            display: none;
+        }
+    }
+    
+}
+
+@media (max-width: 530px){
+    .date h2 {
+        @include fontSize(27);
+    }
+
+    .gallery,
+    .date {
+        width: 100%;
+    }
+}
+
+// At smaller widths < max-width: 550px, change grid column start to 1 and grid column end to 7 for the ul, date and gallery 
+// Expand grid rows at smaller vw
+
+

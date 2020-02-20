@@ -268,7 +268,7 @@ a {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -282,7 +282,6 @@ header {
   height: 100vh;
   background-color: black;
   margin: 0 auto;
-  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,11 +297,20 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+}
+
+header,
+.headerDate,
+.submit {
+  text-align: center;
 }
 
 h1 {
-  font-family: 'Comfortaa', cursive;
-  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: 'Poiret One', cursive;
+  color: #fff;
   font-size: 12rem;
   text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem whitesmoke, 0 0 4rem whitesmoke, 0 0 6rem whitesmoke, 0 0 8rem whitesmoke, 0 0 10rem whitesmoke;
 }
@@ -318,9 +326,8 @@ header div {
   margin: 0 auto;
 }
 
-.date {
+.headerDate {
   margin: 20px;
-  text-align: center;
 }
 
 /* Removes the clear button from date inputs */
@@ -340,7 +347,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* A few custom styles for date inputs */
 input[type="date"] {
-  margin-top: 100px;
+  margin-top: 110px;
   background-color: whitesmoke;
   width: 265px;
   -moz-appearance: none;
@@ -348,7 +355,7 @@ input[type="date"] {
   -webkit-appearance: none;
   color: teal;
   font-family: "Raleway", sans-serif;
-  font-size: 26px;
+  font-size: 2.6rem;
   border: none;
   padding: 10px;
   padding-left: 25px;
@@ -363,18 +370,49 @@ input[type="date"], focus {
   -moz-box-shadow: none;
 }
 
+input[type="submit"]:focus {
+  border: whitesmoke;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .submit {
   width: 140px;
   color: whitesmoke;
   background-color: teal;
-  text-align: center;
   margin: 0 auto;
   padding: 5px;
   padding-top: 8px;
   border: none;
   border-radius: 5px;
   font-family: "Raleway", sans-serif;
-  font-size: 26px;
+  font-size: 2.6rem;
+}
+
+i {
+  color: whitesmoke;
+  font-size: 4rem;
+  position: absolute;
+  bottom: 35px;
+  left: calc((100% / 2) - 20px);
+  cursor: pointer;
+}
+
+i:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+@media (max-width: 810px) {
+  h1 {
+    font-size: 9.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  h1 {
+    font-size: 7rem;
+  }
 }
 
 .parent {
@@ -387,6 +425,34 @@ input[type="date"], focus {
   height: 100vh;
   width: auto;
   font-family: "Raleway", sans-serif;
+  grid-gap: 20px;
+  padding: 2vw 0px;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.sports,
+.music,
+.arts,
+.date,
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.date,
+.gallery {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .date {
@@ -396,21 +462,15 @@ input[type="date"], focus {
   -ms-grid-column-span: 3;
   grid-area: 1 / 1 / 2 / 4;
   background-color: #f2f2f2;
-  margin: 20px 10px 20px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: teal;
+}
+
+.date h2 {
+  font-size: 3.5rem;
 }
 
 .gallery {
@@ -419,20 +479,10 @@ input[type="date"], focus {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: 2 / 1 / 4 / 4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 20px 10px 20px 20px;
 }
 
 .imageDiv1,
@@ -445,30 +495,27 @@ input[type="date"], focus {
 }
 
 .imageDiv1 {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.7))), url(../assets/gallery1.jpg);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery1.jpg);
+  background-image: url(../assets/gallery1.jpg);
 }
 
 .imageDiv2 {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.7))), url(../assets/gallery2.jpg);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery2.jpg);
+  background-image: url(../assets/gallery2.jpg);
   margin: 20px;
 }
 
 .imageDiv3 {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.7))), url(../assets/gallery3.jpg);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/gallery3.jpg);
+  background-image: url(../assets/gallery3.jpg);
 }
 
 .eventDiv {
   background-color: white;
-  margin: 20px;
+  margin: 20px auto;
   width: calc(50% - 40px);
   padding: 20px;
 }
 
-.eventImage img {
-  width: 100%;
+.eventDiv:focus {
+  outline: 2px solid teal;
 }
 
 .eventName {
@@ -482,19 +529,20 @@ input[type="date"], focus {
   color: grey;
 }
 
+.sports,
+.music,
+.arts {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #f2f2f2;
+}
+
 .sports {
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 4;
   -ms-grid-column-span: 3;
   grid-area: 1 / 4 / 4 / 7;
-  background-color: #f2f2f2;
-  margin: 20px 20px 20px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .music {
@@ -503,13 +551,6 @@ input[type="date"], focus {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: 4 / 1 / 7 / 4;
-  background-color: #f2f2f2;
-  margin: 20px 10px 20px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .arts {
@@ -518,15 +559,50 @@ input[type="date"], focus {
   -ms-grid-column: 4;
   -ms-grid-column-span: 3;
   grid-area: 4 / 4 / 7 / 7;
-  background-color: #f2f2f2;
-  margin: 20px 20px 20px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 ul {
   overflow: auto;
+}
+
+@media (max-width: 1000px) {
+  .gallery .imageDiv1,
+  .gallery .imageDiv2 {
+    width: 50%;
+  }
+  .gallery .imageDiv2 {
+    margin: 0 0 0 20px;
+  }
+  .gallery .imageDiv3 {
+    display: none;
+  }
+}
+
+@media (max-width: 810px) {
+  ul .eventDiv {
+    width: 100%;
+    margin: 20px;
+  }
+  .date h2 {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .gallery .imageDiv1 {
+    width: 100%;
+  }
+  .gallery .imageDiv2 {
+    display: none;
+  }
+}
+
+@media (max-width: 530px) {
+  .date h2 {
+    font-size: 2.7rem;
+  }
+  .gallery,
+  .date {
+    width: 100%;
+  }
 }

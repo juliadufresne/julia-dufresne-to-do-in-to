@@ -1,12 +1,21 @@
 const app = {};
 
 // Storing date from HTML
-app.date = $('.date').val();
+app.date = $('.headerDate').val();
+
+
 
 // Submit button
 app.submitButton = $(".submit").click(function(){
     location.reload();
+   
 });
+
+ app.smoothScroll = $("i").click(function() {
+    $('html,body').animate({
+        scrollTop: $('main').offset().top},
+        'slow');
+    });
 
 app.appendDate = `
     <h2>${app.date}</h2>
@@ -39,7 +48,7 @@ app.sortSportsDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv">
+        <div class="eventDiv" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
@@ -94,7 +103,7 @@ app.sortMusicDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv">
+        <div class="eventDiv" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
@@ -149,7 +158,7 @@ app.sortArtDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv">
+        <div class="eventDiv" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
