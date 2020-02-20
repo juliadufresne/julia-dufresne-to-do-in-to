@@ -1,7 +1,6 @@
 // Font Styling
     $bodyFont: 'Raleway', sans-serif;
-    $headerFont: 'Fredoka One', cursive;
-    
+    $headerFont: 'Poiret One', cursive;
 
     @mixin fontSize($size){
         font-size: ($size/10) * 1rem;

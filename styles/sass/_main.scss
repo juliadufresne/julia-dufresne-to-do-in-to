@@ -15,6 +15,15 @@
     margin: 0 auto;
 }
 
+.genre {
+    position: absolute;
+    font-size: 24px;
+    margin-left: 20px;
+    padding: 0px 10px;
+    padding-top: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, rgba(0, 128, 128, 0.493) 40%);
+}
+
 .sports,
 .music,
 .arts,
@@ -22,7 +31,6 @@
 .gallery {
     display: flex;
 }
-
 
 .date,
 .gallery {
@@ -33,33 +41,23 @@
 .date { 
     grid-area: 1 / 1 / 2 / 4; 
     background-color: #f2f2f2;
-    // margin: 20px 10px 20px 20px;
-    // display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     color: teal;
 
-    h2 {
+    p {
         @include fontSize(35);   
     }
 }
 
 .gallery {
     grid-area: 2 / 1 / 4 / 4; 
-    // display: flex;
     flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
-    // margin: 20px 10px 20px 20px;
 }
 
 .imageDiv1,
 .imageDiv2,
 .imageDiv3 {
     width: calc(100% / 3);
-    // height: auto;
-    // width: 100px;
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -82,13 +80,13 @@
 .eventDiv {
     background-color: white;
     margin: 20px auto;
+    margin-top: 50px;
     width: calc(50% - 40px);
     padding: 20px;
     &:focus {
         outline: 2px solid teal;
     }
 }
-
 
 .eventName {
     font-family: 'Comfortaa', cursive;
@@ -110,39 +108,39 @@
 
 .sports { 
     grid-area: 1 / 4 / 4 / 7; 
-    // background-color: #f2f2f2;
-    // margin: 20px 20px 20px 10px;
-    // display: flex;
-    // flex-wrap: wrap;
 }
 
 .music { 
     grid-area: 4 / 1 / 7 / 4; 
-    // background-color: #f2f2f2;
-    // margin: 20px 10px 20px 20px;
-    // display: flex;
-    // flex-wrap: wrap;
 }
 
 .arts { 
     grid-area: 4 / 4 / 7 / 7; 
-    // background-color: #f2f2f2;
-    // margin: 20px 20px 20px 10px;
-    // display: flex;
-    // flex-wrap: wrap;
 } 
 
 ul {
     overflow: auto;
 }
 
+.error {
+    color: teal;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $headerFont;
+    @include fontSize(24);
+    letter-spacing: 2px;
+}
 
-// Potential Styling for "No Events" Box
-// h4 {
-//     @include fontSize(35);
-//     color: #383838;
-//     text-align: center;
-// }
+.errorImg {
+    width: 80px;
+    margin: 0 auto;
+}
+
+.errorDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 
 // Media Queries
 // We can tweak sizing before 800px I just wnted to begin fixing where things begin to break badly and get squished
@@ -172,7 +170,7 @@ ul {
         margin: 20px;
     }
 
-    .date h2 {
+    .date p {
         @include fontSize(32);
     }
 }
@@ -191,7 +189,7 @@ ul {
 }
 
 @media (max-width: 530px){
-    .date h2 {
+    .date p {
         @include fontSize(27);
     }
 
