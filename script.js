@@ -33,6 +33,7 @@ app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
 // Function to sort out duplicate events
 app.sortSportsDuplicates = function(result) {
     let arrayData = result._embedded.events;
+    console.log(arrayData);
     // New array that we will not add duplicate events to (no two events with the same name)
     let noDuplicates = [];
     arrayData.forEach(function(item){
@@ -41,6 +42,7 @@ app.sortSportsDuplicates = function(result) {
         const venue = item._embedded.venues[0].name;
         const date = item.dates.start.localDate;
         const time = item.dates.start.localTime;
+        const url = item.url;
         const image = item.images;
             image.forEach(function(i){
                 if (i.width === 205) {
@@ -48,12 +50,12 @@ app.sortSportsDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv" tabindex="0">
+        <a class="eventDiv" href="${url}" target="_blank" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
             <li class="eventDate">${date} @ ${time}</li>
-        </div>
+        </a>
         `;
         // We only care about "item" if its an arts event
         if (genre === "Sports") {
@@ -96,6 +98,7 @@ app.sortMusicDuplicates = function(result) {
         const venue = item._embedded.venues[0].name;
         const date = item.dates.start.localDate;
         const time = item.dates.start.localTime;
+        const url = item.url;
         const image = item.images;
             image.forEach(function(i){
                 if (i.width === 205) {
@@ -103,12 +106,12 @@ app.sortMusicDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv" tabindex="0">
+            <a class="eventDiv" href="${url}" target="_blank" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
             <li class="eventDate">${date} @ ${time}</li>
-        </div>
+            </a>
         `;
         // We only care about "item" if its an arts event
         if (genre === "Music") {
@@ -151,6 +154,7 @@ app.sortArtDuplicates = function(result) {
         const venue = item._embedded.venues[0].name;
         const date = item.dates.start.localDate;
         const time = item.dates.start.localTime;
+        const url = item.url;
         const image = item.images;
             image.forEach(function(i){
                 if (i.width === 205) {
@@ -158,12 +162,12 @@ app.sortArtDuplicates = function(result) {
                 }
             })
         const htmlToAppend = `
-        <div class="eventDiv" tabindex="0">
+        <a class="eventDiv" href="${url}" target="_blank" tabindex="0">
             <li class="eventImage"><img src="${imageURL}" alt=""></li>
             <li class="eventName">${nameOfEvent}</li>
             <li class="eventVenue">${venue}</li>
             <li class="eventDate">${date} @ ${time}</li>
-        </div>
+        </a>
         `;
         // We only care about "item" if its an arts event
         if (genre === "Arts & Theatre") {

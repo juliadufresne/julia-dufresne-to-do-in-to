@@ -33,11 +33,7 @@
 .date { 
     grid-area: 1 / 1 / 2 / 4; 
     background-color: #f2f2f2;
-    // margin: 20px 10px 20px 20px;
-    // display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     color: teal;
 
     h2 {
@@ -47,19 +43,14 @@
 
 .gallery {
     grid-area: 2 / 1 / 4 / 4; 
-    // display: flex;
     flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
-    // margin: 20px 10px 20px 20px;
+
 }
 
 .imageDiv1,
 .imageDiv2,
 .imageDiv3 {
     width: calc(100% / 3);
-    // height: auto;
-    // width: 100px;
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -110,26 +101,17 @@
 
 .sports { 
     grid-area: 1 / 4 / 4 / 7; 
-    // background-color: #f2f2f2;
-    // margin: 20px 20px 20px 10px;
-    // display: flex;
-    // flex-wrap: wrap;
+
 }
 
 .music { 
     grid-area: 4 / 1 / 7 / 4; 
-    // background-color: #f2f2f2;
-    // margin: 20px 10px 20px 20px;
-    // display: flex;
-    // flex-wrap: wrap;
+
 }
 
 .arts { 
     grid-area: 4 / 4 / 7 / 7; 
-    // background-color: #f2f2f2;
-    // margin: 20px 20px 20px 10px;
-    // display: flex;
-    // flex-wrap: wrap;
+
 } 
 
 ul {
@@ -137,17 +119,14 @@ ul {
 }
 
 
-// Potential Styling for "No Events" Box
-// h4 {
-//     @include fontSize(35);
-//     color: #383838;
-//     text-align: center;
-// }
-
 // Media Queries
-// We can tweak sizing before 800px I just wnted to begin fixing where things begin to break badly and get squished
 
 @media (max-width: 1000px){
+    ul .eventDiv {
+        width: 100%;
+        margin: 20px;
+    }
+
     .gallery {
         .imageDiv1,
         .imageDiv2 {
@@ -164,18 +143,45 @@ ul {
     }
 }
 
-//Between these 2 MQ (or before), it might be best to stack the ul horizontally as the eventDiv is flush with the bottom
 
 @media (max-width: 810px){
-    ul .eventDiv {
-        width: 100%;
-        margin: 20px;
+    main {
+        height: 100%;
     }
 
     .date h2 {
-        @include fontSize(32);
+        @include fontSize(40);
     }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+        grid-row-gap: 20px;
+        height: 100%;
+
+            .sports,
+            .music,
+            .arts {
+                height: 50vh;
+            }
+        }
+        
+        .date { grid-area: 1 / 1 / 3 / 7; }
+        .gallery { 
+            grid-area: 3 / 1 / 6 / 7;
+           
+            .imageDiv1,
+            .imageDiv2 {
+                margin: 20px;
+            }
+        }
+        .sports { grid-area: 7 / 1 / 10 / 7; }
+        .music { grid-area: 10 / 1 / 13 / 7; }
+        .arts { grid-area: 13 / 1 / 16 / 7; } 
+   
 }
+
 
 @media(max-width: 680px){
     .gallery {
@@ -201,7 +207,5 @@ ul {
     }
 }
 
-// At smaller widths < max-width: 550px, change grid column start to 1 and grid column end to 7 for the ul, date and gallery 
-// Expand grid rows at smaller vw
 
 

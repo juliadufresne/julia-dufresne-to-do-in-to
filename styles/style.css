@@ -566,6 +566,10 @@ ul {
 }
 
 @media (max-width: 1000px) {
+  ul .eventDiv {
+    width: 100%;
+    margin: 20px;
+  }
   .gallery .imageDiv1,
   .gallery .imageDiv2 {
     width: 50%;
@@ -579,12 +583,65 @@ ul {
 }
 
 @media (max-width: 810px) {
-  ul .eventDiv {
-    width: 100%;
-    margin: 20px;
+  main {
+    height: 100%;
   }
   .date h2 {
-    font-size: 3.2rem;
+    font-size: 4rem;
+  }
+  .parent {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+    -ms-grid-rows: (1fr)[15];
+        grid-template-rows: repeat(15, 1fr);
+    grid-row-gap: 20px;
+    height: 100%;
+  }
+  .parent .sports,
+  .parent .music,
+  .parent .arts {
+    height: 50vh;
+  }
+  .date {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-area: 1 / 1 / 3 / 7;
+  }
+  .gallery {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-area: 3 / 1 / 6 / 7;
+  }
+  .gallery .imageDiv1,
+  .gallery .imageDiv2 {
+    margin: 20px;
+  }
+  .sports {
+    -ms-grid-row: 7;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-area: 7 / 1 / 10 / 7;
+  }
+  .music {
+    -ms-grid-row: 10;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-area: 10 / 1 / 13 / 7;
+  }
+  .arts {
+    -ms-grid-row: 13;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-area: 13 / 1 / 16 / 7;
   }
 }
 
