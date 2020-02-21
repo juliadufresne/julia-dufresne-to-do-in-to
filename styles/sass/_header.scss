@@ -1,0 +1,131 @@
+header {
+    height: 100vh;
+    background-color: black;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../assets/toronto.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+}
+
+header,
+.headerDate,
+.submit {
+    text-align: center;
+}
+
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: $headerFont;
+    color: #fff;
+    @include fontSize(120);
+    text-shadow:
+    -0.2rem -0.2rem 1rem #fff,
+    0.2rem 0.2rem 1rem #fff,
+    0 0 2rem whitesmoke,
+    0 0 4rem whitesmoke,
+    0 0 6rem whitesmoke,
+    0 0 8rem whitesmoke,
+    0 0 10rem whitesmoke,
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.headerDate {
+    margin: 20px;
+}
+
+// http://jsfiddle.net/plan/V2Q58/
+
+    /* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    margin-top: 110px;
+    background-color: whitesmoke;
+    width: 265px;
+    appearance: none;
+    -webkit-appearance: none;
+    color: teal;
+    font-family: $bodyFont;
+    @include fontSize(26);
+    border: none;
+    padding: 10px;
+    padding-left: 25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+input[type="date"], focus {
+    color: teal;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+input[type="submit"]:focus {
+    border: whitesmoke;
+    transform: scale(1.1);
+}
+
+.submit {
+    width: 140px;
+    color: whitesmoke;
+    background-color: teal;
+    margin: 0 auto;
+    padding: 5px;
+    padding-top:8px;
+    border: none;
+    border-radius: 5px;
+    font-family: $bodyFont;
+    @include fontSize(26);
+}
+
+i {
+    color: whitesmoke;
+    @include fontSize(40);
+    position: absolute;
+    bottom: 35px;
+    left: calc((100% / 2) - 20px);
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+
+@media (max-width: 810px){
+    h1 {
+        @include fontSize(95);
+    }
+}
+
+@media (max-width: 680px){
+    h1 {
+        @include fontSize(70);
+    }
+}

@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Raleway&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/813177f008.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- <form action=""> -->
-        <input type="date" class="date">
-        <input type="submit" class="submit"></input>
-    <!-- </form> -->
+<header>
+    <h1>To do in TO</h1>
+    <div>
+        <input type="date" class="headerDate" required="required" style="width:265px">
+        <input type="submit" class="submit" value="Let's Go" tabindex="0"></input>
+        <i class="fas fa-chevron-down" tabindex="0" aria-label="Click to scroll down to result"></i>
+    </div>
+</header>
 
-    <ul class="sports">
-        <!-- Js GOES IN HERE -->
-    </ul>
+<main>
+    <div class="parent wrapper">
 
-    <ul class="music">
-        <!-- Js GOES IN HERE -->
-    </ul>
+        <div class="date">
+            <!-- JS GOES IN HERE -->
+        </div>
 
-    <ul class="arts">
-        <!-- Js GOES IN HERE -->
-    </ul>
+        <div class="gallery">
+            <div class="imageDiv1"></div>
+            <div class="imageDiv2"></div>
+            <div class="imageDiv3"></div>
+        </div>
+
+        <ul class="sports">
+            <h3 class="genre">Sports</h3>
+            <!-- Js GOES IN HERE -->
+        </ul>
+    
+        <ul class="music">
+            <h3 class="genre">Music</h3>
+            <!-- Js GOES IN HERE -->
+        </ul>
+    
+        <ul class="arts">
+            <h3 class="genre">Arts & Theatre</h3>
+            <!-- Js GOES IN HERE -->
+        </ul>
+    </div>
+</main>
 
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 <script src="script.js"></script>
