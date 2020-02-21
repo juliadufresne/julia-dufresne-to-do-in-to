@@ -195,6 +195,7 @@ ul {
     .gallery {
         .imageDiv1 {
             width: 100%;
+            margin-right: 0px;
         }
 
         .imageDiv2 {
@@ -203,6 +204,7 @@ ul {
     }
     
 }
+
 
 @media (max-width: 530px){
     .date p {
