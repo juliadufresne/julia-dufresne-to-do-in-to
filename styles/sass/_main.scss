@@ -1,3 +1,9 @@
+.wrapper {
+    max-width: 1280px;
+    width: 95%;
+    margin: 0 auto;
+}
+
 .parent {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -9,15 +15,9 @@
     padding: 2vw 0px;
 }
 
-.wrapper {
-    max-width: 1280px;
-    width: 95%;
-    margin: 0 auto;
-}
-
 .genre {
     position: absolute;
-    font-size: 24px;
+    @include fontSize(24);
     margin-left: 20px;
     padding: 0px 10px;
     padding-top: 10px;
@@ -61,7 +61,6 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    
 }
 
 .imageDiv1 {
@@ -91,7 +90,7 @@
 .eventName {
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
-    font-size: 14px;
+    @include fontSize(14);
     padding: 10px 0px;
 }
 
@@ -120,26 +119,6 @@
 
 ul {
     overflow: auto;
-}
-
-.error {
-    color: teal;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: $headerFont;
-    @include fontSize(24);
-    letter-spacing: 2px;
-}
-
-.errorImg {
-    width: 80px;
-    margin: 0 auto;
-}
-
-.errorDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
 }
 
 // Media Queries
@@ -193,16 +172,22 @@ ul {
         .date { grid-area: 1 / 1 / 3 / 7; }
         .gallery { 
             grid-area: 3 / 1 / 6 / 7;
-           
             .imageDiv1,
             .imageDiv2 {
-                margin: 20px;
+                margin: 20px auto;
+            }
+
+            .imageDiv1{
+                margin-right: 10px;
+            }
+
+            .imageDiv2{
+                margin-left: 10px;
             }
         }
         .sports { grid-area: 7 / 1 / 10 / 7; }
         .music { grid-area: 10 / 1 / 13 / 7; }
         .arts { grid-area: 13 / 1 / 16 / 7; } 
-   
 }
 
 

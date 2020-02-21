@@ -1,13 +1,12 @@
 const app = {};
 
-
-
-// Function to sort out duplicate events
+// Function to sort out duplicate events and print results for SPORTS
 app.sortSportsDuplicates = function(result) {
-    console.log(result)
+    // Setting base to retrieve data from on API object
     let arrayData = result._embedded.events;
     // New array that we will not add duplicate events to (no two events with the same name)
     let noDuplicates = [];
+    // Going through API object to retrieve endpoints and appending to HTML
     arrayData.forEach(function(item){
         const genre = item.classifications[0].segment.name;
         const nameOfEvent = item.name;
@@ -30,11 +29,8 @@ app.sortSportsDuplicates = function(result) {
         </a>
         `;
 
-
-        
-        // We only care about "item" if its an arts event
         if (genre === "Sports") {
-            // If there's nothing in noDuplicates, that means that we can safely add our first event and it won't be a duplicate
+            // If there's nothing in noDuplicates array, that means that we can safely add our first event and it won't be a duplicate
             if(noDuplicates.length == 0){
                 noDuplicates.push(item);
                 htmlToAppend;
@@ -50,7 +46,7 @@ app.sortSportsDuplicates = function(result) {
                             match = true;
                     }
                 });
-                // If no event in noDuplicates matches item, that means we can add it.
+                // If no event in noDuplicates matches item, that means we can add it
                 if(!match) {
                     noDuplicates.push(item);
                     htmlToAppend;
@@ -62,11 +58,13 @@ app.sortSportsDuplicates = function(result) {
 }
 
 
-// Function to sort out duplicate events
+// Function to sort out duplicate events and print results for MUSIC
 app.sortMusicDuplicates = function(result) {
+    // Setting base to retrieve data from on API object
     let arrayData = result._embedded.events;
     // New array that we will not add duplicate events to (no two events with the same name)
     let noDuplicates = [];
+    // Going through API object to retrieve endpoints and appending to HTML
     arrayData.forEach(function(item){
         const genre = item.classifications[0].segment.name;
         const nameOfEvent = item.name;
@@ -88,9 +86,8 @@ app.sortMusicDuplicates = function(result) {
             <li class="eventDate">${date} @ ${time}</li>
             </a>
         `;
-        // We only care about "item" if its an arts event
         if (genre === "Music") {
-            // If there's nothing in noDuplicates, that means that we can safely add our first event and it won't be a duplicate
+            // If there's nothing in noDuplicates array, that means that we can safely add our first event and it won't be a duplicate
             if(noDuplicates.length == 0){
                 noDuplicates.push(item);
                 htmlToAppend;
@@ -114,24 +111,17 @@ app.sortMusicDuplicates = function(result) {
                 }
             }
         } 
-        // else if (genre !== "Music"){
-        //     const appendError = `
-        //                 <div class="eventDiv errorDiv" tabindex="0">
-        //                     <img src="./assets/error.svg" alt="error" class="errorImg">
-        //                     <li class="error">No events today</li>
-        //                 </div>
-        //             `;
-        //     $('.music').html(appendError);
-        // }
     })
 }
 
 
-// Function to sort out duplicate events
+// Function to sort out duplicate events and print results for ARTS AND THEATRE
 app.sortArtDuplicates = function(result) {
+    // Setting base to retrieve data from on API object
     let arrayData = result._embedded.events;
     // New array that we will not add duplicate events to (no two events with the same name)
     let noDuplicates = [];
+    // Going through API object to retrieve endpoints and appending to HTML
     arrayData.forEach(function(item){
         const genre = item.classifications[0].segment.name;
         const nameOfEvent = item.name;
@@ -179,19 +169,27 @@ app.sortArtDuplicates = function(result) {
                 }
             }
         } 
-        // else if (genre !== "Arts & Theatre"){
-        //     const appendError = `
-        //                 <div class="eventDiv errorDiv" tabindex="0">
-        //                     <img src="./assets/error.svg" alt="error" class="errorImg">
-        //                     <li class="error">No events today</li>
-        //                 </div>
-        //             `;
-        //     $('.arts').html(appendError);
-        // }
     })
 }
 
 app.ajaxCall = function(){
+    // Storing users date input
+    app.date = $('.headerDate').val();
+
+    // Info for ajax call
+    app.startTime = `T00:00:00`;
+    app.startDateTime = `${app.date}${app.startTime}`;
+    app.endTime = `T23:59:59`;
+    app.endDateTime = `${app.date}${app.endTime}`;
+    app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
+
+    // Append date to main content
+    app.appendDate = `
+        <p>${app.date}</p>
+    `;
+    $('.date').html(app.appendDate);
+
+
     $.ajax({
         url: `https://app.ticketmaster.com/discovery/v2/events.json?`,
         type: `GET`,
@@ -210,18 +208,9 @@ app.ajaxCall = function(){
 }
 
 app.init = function(){
-    // Storing users date input
-    app.date = $('.headerDate').val();
-
-    // Append date to main content
-    app.appendDate = `
-        <p>${app.date}</p>
-    `;
-    $('.date').append(app.appendDate);
-
     // Submit button
     app.submitButton = $(".submit").click(function(){
-        location.reload();
+        app.ajaxCall();
     });
 
     // Scroll button 
@@ -231,12 +220,6 @@ app.init = function(){
             'slow');
         });
 
-    // Info for ajax call
-    app.startTime = `T00:00:00`;
-    app.startDateTime = `${app.date}${app.startTime}`;
-    app.endTime = `T23:59:59`;
-    app.endDateTime = `${app.date}${app.endTime}`;
-    app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
     app.ajaxCall();
 }
 

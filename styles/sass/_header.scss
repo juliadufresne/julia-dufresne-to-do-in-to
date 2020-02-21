@@ -13,6 +13,7 @@ header {
     background-attachment: fixed;
 }
 
+
 header,
 .headerDate,
 .submit {
@@ -46,8 +47,7 @@ header div {
     margin: 20px;
 }
 
-// http://jsfiddle.net/plan/V2Q58/
-
+// Referenced from http://jsfiddle.net/plan/V2Q58/
     /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
     display: none;
@@ -103,6 +103,16 @@ input[type="submit"]:focus {
     border-radius: 5px;
     font-family: $bodyFont;
     @include fontSize(26);
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+.submit:active {
+    background-color: whitesmoke;
+    color: teal;
+    cursor: pointer;
 }
 
 i {

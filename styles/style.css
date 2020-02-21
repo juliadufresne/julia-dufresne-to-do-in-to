@@ -390,6 +390,16 @@ input[type="submit"]:focus {
   font-size: 2.6rem;
 }
 
+.submit:hover {
+  cursor: pointer;
+}
+
+.submit:active {
+  background-color: whitesmoke;
+  color: teal;
+  cursor: pointer;
+}
+
 i {
   color: whitesmoke;
   font-size: 4rem;
@@ -416,6 +426,12 @@ i:hover {
   }
 }
 
+.wrapper {
+  max-width: 1280px;
+  width: 95%;
+  margin: 0 auto;
+}
+
 .parent {
   display: -ms-grid;
   display: grid;
@@ -430,15 +446,9 @@ i:hover {
   padding: 2vw 0px;
 }
 
-.wrapper {
-  max-width: 1280px;
-  width: 95%;
-  margin: 0 auto;
-}
-
 .genre {
   position: absolute;
-  font-size: 24px;
+  font-size: 2.4rem;
   margin-left: 20px;
   padding: 0px 10px;
   padding-top: 10px;
@@ -533,7 +543,7 @@ i:hover {
 .eventName {
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 10px 0px;
 }
 
@@ -575,33 +585,6 @@ i:hover {
 
 ul {
   overflow: auto;
-}
-
-.error {
-  color: teal;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Poiret One", cursive;
-  font-size: 2.4rem;
-  letter-spacing: 2px;
-}
-
-.errorImg {
-  width: 80px;
-  margin: 0 auto;
-}
-
-.errorDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 @media (max-width: 1000px) {
@@ -659,7 +642,13 @@ ul {
   }
   .gallery .imageDiv1,
   .gallery .imageDiv2 {
-    margin: 20px;
+    margin: 20px auto;
+  }
+  .gallery .imageDiv1 {
+    margin-right: 10px;
+  }
+  .gallery .imageDiv2 {
+    margin-left: 10px;
   }
   .sports {
     -ms-grid-row: 7;
