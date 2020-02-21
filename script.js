@@ -1,39 +1,11 @@
 const app = {};
 
-// Storing date from HTML
-app.date = $('.headerDate').val();
 
-
-
-// Submit button
-app.submitButton = $(".submit").click(function(){
-    location.reload();
-   
-});
-
- app.smoothScroll = $("i").click(function() {
-    $('html,body').animate({
-        scrollTop: $('main').offset().top},
-        'slow');
-    });
-
-app.appendDate = `
-    <h2>${app.date}</h2>
-`;
-
-$('.date').append(app.appendDate);
-
-// PULLS LOCAL DATE TIME
-app.startTime = `T00:00:00`;
-app.startDateTime = `${app.date}${app.startTime}`;
-app.endTime = `T23:59:59`;
-app.endDateTime = `${app.date}${app.endTime}`;
-app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
 
 // Function to sort out duplicate events
 app.sortSportsDuplicates = function(result) {
+    console.log(result)
     let arrayData = result._embedded.events;
-    console.log(arrayData);
     // New array that we will not add duplicate events to (no two events with the same name)
     let noDuplicates = [];
     arrayData.forEach(function(item){
@@ -57,6 +29,9 @@ app.sortSportsDuplicates = function(result) {
             <li class="eventDate">${date} @ ${time}</li>
         </a>
         `;
+
+
+        
         // We only care about "item" if its an arts event
         if (genre === "Sports") {
             // If there's nothing in noDuplicates, that means that we can safely add our first event and it won't be a duplicate
@@ -82,7 +57,7 @@ app.sortSportsDuplicates = function(result) {
                     $('.sports').append(htmlToAppend);
                 }
             }
-        }
+        } 
     })
 }
 
@@ -138,7 +113,16 @@ app.sortMusicDuplicates = function(result) {
                     $('.music').append(htmlToAppend);
                 }
             }
-        }
+        } 
+        // else if (genre !== "Music"){
+        //     const appendError = `
+        //                 <div class="eventDiv errorDiv" tabindex="0">
+        //                     <img src="./assets/error.svg" alt="error" class="errorImg">
+        //                     <li class="error">No events today</li>
+        //                 </div>
+        //             `;
+        //     $('.music').html(appendError);
+        // }
     })
 }
 
@@ -194,7 +178,16 @@ app.sortArtDuplicates = function(result) {
                     $('.arts').append(htmlToAppend);
                 }
             }
-        }
+        } 
+        // else if (genre !== "Arts & Theatre"){
+        //     const appendError = `
+        //                 <div class="eventDiv errorDiv" tabindex="0">
+        //                     <img src="./assets/error.svg" alt="error" class="errorImg">
+        //                     <li class="error">No events today</li>
+        //                 </div>
+        //             `;
+        //     $('.arts').html(appendError);
+        // }
     })
 }
 
@@ -217,6 +210,33 @@ app.ajaxCall = function(){
 }
 
 app.init = function(){
+    // Storing users date input
+    app.date = $('.headerDate').val();
+
+    // Append date to main content
+    app.appendDate = `
+        <p>${app.date}</p>
+    `;
+    $('.date').append(app.appendDate);
+
+    // Submit button
+    app.submitButton = $(".submit").click(function(){
+        location.reload();
+    });
+
+    // Scroll button 
+    app.smoothScroll = $("i").click(function() {
+        $('html,body').animate({
+            scrollTop: $('main').offset().top},
+            'slow');
+        });
+
+    // Info for ajax call
+    app.startTime = `T00:00:00`;
+    app.startDateTime = `${app.date}${app.startTime}`;
+    app.endTime = `T23:59:59`;
+    app.endDateTime = `${app.date}${app.endTime}`;
+    app.localStartDateTime = `${app.startDateTime},${app.endDateTime}`
     app.ajaxCall();
 }
 

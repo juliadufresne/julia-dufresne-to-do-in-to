@@ -10,6 +10,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    background-attachment: fixed;
 }
 
 header,
@@ -22,7 +23,7 @@ header,
 h1 {
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-family: 'Poiret One', cursive;
+    font-family: $headerFont;
     color: #fff;
     @include fontSize(120);
     text-shadow:
@@ -43,7 +44,6 @@ header div {
 
 .headerDate {
     margin: 20px;
-    // text-align: center;
 }
 
 // http://jsfiddle.net/plan/V2Q58/
@@ -96,7 +96,6 @@ input[type="submit"]:focus {
     width: 140px;
     color: whitesmoke;
     background-color: teal;
-    // text-align: center;
     margin: 0 auto;
     padding: 5px;
     padding-top:8px;
@@ -117,7 +116,7 @@ i {
         transform: scale(1.2);
     }
 }
- 
+
 
 @media (max-width: 810px){
     h1 {
