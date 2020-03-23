@@ -21,14 +21,14 @@
     margin-left: 20px;
     padding: 0px 10px;
     padding-top: 10px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, rgba(0, 128, 128, 0.493) 40%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #cbdbff98 40%);
 }
 
-.sports,
-.music,
-.arts,
 .date,
-.gallery {
+.gallery,
+.sportsContent,
+.artsContent,
+.musicContent {
     display: flex;
 }
 
@@ -42,7 +42,7 @@
     grid-area: 1 / 1 / 2 / 4; 
     background-color: #f2f2f2;
     flex-direction: column;
-    color: teal;
+    color:rgba(27, 27, 27, 0.75);
 
     p {
         @include fontSize(35);   
@@ -64,16 +64,19 @@
 }
 
 .imageDiv1 {
-    background-image:  url(../assets/gallery1.jpg);
+    // background-image:  url(../assets/gallery1.jpg);
+    background-color: #dfe9ff;
 }
 
 .imageDiv2 {
-    background-image: url(../assets/gallery2.jpg);
+    // background-image: url(../assets/gallery2.jpg);
+    background-color: #cbdbff;
     margin: 20px;
 }
 
 .imageDiv3 {
-    background-image:  url(../assets/gallery3.jpg);
+    // background-image:  url(../assets/gallery3.jpg);
+    background-color: rgb(224, 234, 255);
 }
 
 .eventDiv {
@@ -83,7 +86,7 @@
     width: calc(50% - 40px);
     padding: 20px;
     &:focus {
-        outline: 2px solid teal;
+        outline: 2px solid #1585a0;
     }
 }
 
@@ -100,7 +103,10 @@
 
 .sports,
 .music,
-.arts {
+.arts,
+.sportsContent,
+.artsContent,
+.musicContent {
     flex-wrap: wrap;
     background-color: #f2f2f2;
 }
@@ -164,7 +170,10 @@ ul {
 
             .sports,
             .music,
-            .arts {
+            .arts,
+            .sportsContent,
+            .artsContent,
+            .musicContent {
                 height: 50vh;
             }
         }

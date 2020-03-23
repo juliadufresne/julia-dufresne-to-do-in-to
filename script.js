@@ -34,7 +34,7 @@ app.sortSportsDuplicates = function(result) {
             if(noDuplicates.length == 0){
                 noDuplicates.push(item);
                 htmlToAppend;
-                $('.sports').append(htmlToAppend);
+                $('.sportsContent').append(htmlToAppend);
             // Otherwise, we have to take a look at what we've added to noDuplicates already
             } else {
                 // Boolean variable that tells us if the "copied" item matches the "item" we're considering adding 
@@ -50,7 +50,7 @@ app.sortSportsDuplicates = function(result) {
                 if(!match) {
                     noDuplicates.push(item);
                     htmlToAppend;
-                    $('.sports').append(htmlToAppend);
+                    $('.sportsContent').append(htmlToAppend);
                 }
             }
         } 
@@ -91,7 +91,7 @@ app.sortMusicDuplicates = function(result) {
             if(noDuplicates.length == 0){
                 noDuplicates.push(item);
                 htmlToAppend;
-                $('.music').append(htmlToAppend);
+                $('.musicContent').append(htmlToAppend);
             // Otherwise, we have to take a look at what we've added to noDuplicates already
             } else {
                 // Boolean variable that tells us if the "copied" item matches the "item" we're considering adding 
@@ -107,7 +107,7 @@ app.sortMusicDuplicates = function(result) {
                 if(!match) {
                     noDuplicates.push(item);
                     htmlToAppend;
-                    $('.music').append(htmlToAppend);
+                    $('.musicContent').append(htmlToAppend);
                 }
             }
         } 
@@ -149,7 +149,7 @@ app.sortArtDuplicates = function(result) {
             if(noDuplicates.length == 0){
                 noDuplicates.push(item);
                 htmlToAppend;
-                $('.arts').append(htmlToAppend);
+                $('.artsContent').append(htmlToAppend);
             // Otherwise, we have to take a look at what we've added to noDuplicates already
             } else {
                 // Boolean variable that tells us if the "copied" item matches the "item" we're considering adding 
@@ -165,7 +165,7 @@ app.sortArtDuplicates = function(result) {
                 if(!match) {
                     noDuplicates.push(item);
                     htmlToAppend;
-                    $('.arts').append(htmlToAppend);
+                    $('.artsContent').append(htmlToAppend);
                 }
             }
         } 
@@ -189,6 +189,12 @@ app.ajaxCall = function(){
     `;
     $('.date').html(app.appendDate);
 
+    // app.submitButton = $(".submit").click(function(){
+    //     // location.reload();
+    //     $('.eventDiv').empty();
+    //     app.ajaxCall();
+    // });
+
 
     $.ajax({
         url: `https://app.ticketmaster.com/discovery/v2/events.json?`,
@@ -207,14 +213,22 @@ app.ajaxCall = function(){
     })
 }
 
+app.submitButton = $(".submit").click(function(){
+    // location.reload();
+    $('.artsContent').empty();
+    $('.sportsContent').empty();
+    $('.musicContent').empty();
+    app.ajaxCall();
+});
+
 app.init = function(){
     // Submit button
-    app.submitButton = $(".submit").click(function(){
-        app.ajaxCall();
-    });
+    // app.submitButton = $(".submit").click(function(){
+    //     app.ajaxCall();
+    // });
 
     // Scroll button 
-    app.smoothScroll = $("i").click(function() {
+    app.smoothScroll = $(".submit").click(function() {
         $('html,body').animate({
             scrollTop: $('main').offset().top},
             'slow');
