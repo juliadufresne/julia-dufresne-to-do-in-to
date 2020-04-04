@@ -1,3 +1,9 @@
+// TO DO
+// Error handling - if there are no results, append an error message to specified container
+// Fix loading on hero backround image (preloader?)
+// Put better instructions on what the app does (in "?" button perhaps?)
+
+
 const app = {};
 
 // Function to sort out duplicate events and print results for SPORTS
@@ -189,12 +195,6 @@ app.ajaxCall = function(){
     `;
     $('.date').html(app.appendDate);
 
-    // app.submitButton = $(".submit").click(function(){
-    //     // location.reload();
-    //     $('.eventDiv').empty();
-    //     app.ajaxCall();
-    // });
-
 
     $.ajax({
         url: `https://app.ticketmaster.com/discovery/v2/events.json?`,
@@ -222,10 +222,6 @@ app.submitButton = $(".submit").click(function(){
 });
 
 app.init = function(){
-    // Submit button
-    // app.submitButton = $(".submit").click(function(){
-    //     app.ajaxCall();
-    // });
 
     // Scroll button 
     app.smoothScroll = $(".submit").click(function() {
