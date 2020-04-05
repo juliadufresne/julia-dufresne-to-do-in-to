@@ -2,10 +2,13 @@
 // Error handling - if there are no results, append an error message to specified container
 // Fix loading on hero backround image (preloader?)
 // Put better instructions on what the app does (in "?" button perhaps?)
+// Find a way to reuse "sortDuplicated()" so you don't have to write it three times
 
-
+// Namespacing to store all app in object
 const app = {};
 
+
+// SORT SPORTS EVENTS AND PRINT ON PAGE
 // Function to sort out duplicate events and print results for SPORTS
 app.sortSportsDuplicates = function(result) {
     // Setting base to retrieve data from on API object
@@ -64,6 +67,7 @@ app.sortSportsDuplicates = function(result) {
 }
 
 
+// SORT MUSIC EVENTS AND PRINT ON PAGE
 // Function to sort out duplicate events and print results for MUSIC
 app.sortMusicDuplicates = function(result) {
     // Setting base to retrieve data from on API object
@@ -121,6 +125,7 @@ app.sortMusicDuplicates = function(result) {
 }
 
 
+// SORT ART EVENTS AND PRINT ON PAGE
 // Function to sort out duplicate events and print results for ARTS AND THEATRE
 app.sortArtDuplicates = function(result) {
     // Setting base to retrieve data from on API object
@@ -178,6 +183,8 @@ app.sortArtDuplicates = function(result) {
     })
 }
 
+
+// AJAX CALL FOR RETRIEVING DATA
 app.ajaxCall = function(){
     // Storing users date input
     app.date = $('.headerDate').val();
@@ -214,7 +221,6 @@ app.ajaxCall = function(){
 }
 
 app.submitButton = $(".submit").click(function(){
-    // location.reload();
     $('.artsContent').empty();
     $('.sportsContent').empty();
     $('.musicContent').empty();
@@ -222,7 +228,6 @@ app.submitButton = $(".submit").click(function(){
 });
 
 app.init = function(){
-
     // Scroll button 
     app.smoothScroll = $(".submit").click(function() {
         $('html,body').animate({
